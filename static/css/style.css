@@ -1,0 +1,39 @@
+h1{
+	color: Crimson;
+	font-size: 60px;
+	font-style: italic;
+	font-family: Comic Sans MS;
+}
+h2{
+	color: IndianRed;
+}
+h4 {
+	color: Maroon;
+}
+p{
+	color: black;
+}
+p.about{
+	color: LightCoral;
+}
+p.name_catalog{
+	color: PaleVioletRed;
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+td, tr{
+	border: 1px solid #000;
+}
+table.table_main{
+	background: #000;
+	color: #fff;
+}
+table.table_main td, table.table_main tr{
+	border: 1px solid #fff;
+}
+table.link td, table.link tr{
+	border: none;
+	padding: 0 10px;
+}
