@@ -1,4 +1,13 @@
 ﻿<!DOCTYPE html>
+<?php
+/* *************************************************************************************************
+Карачинская Елизавета Анатольевна <elizavetakarachinskayaa@gmail.com>
+24/05/2016 02:41:00
+kategorii_tovarov - второстепенная страница, приложение к  index.php
+расположен в каталоге 315 
+****************************************************************************************************/
+
+?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -12,9 +21,9 @@
 </head>
 <body>
 <?php 
-require_once 'func.php';
+require_once 'core/func/func.php';
 ?>
-<img src="image/1.png" align="left" />
+<img src="static/image/1.png" align="left" />
 <h4 align="right"> Горячая линия (495)926-80-82 </h4>
  	<h1><a href="index.php" style="color:Crimson">Магазин &laquo;Женские штучки&raquo;</a></h1>
  	<h2> <a href="kategorii_tovarov.php" style="color:IndianRed" > Категории товаров </a></h2>

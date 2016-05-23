@@ -1,4 +1,14 @@
 ﻿<!DOCTYPE html>
+<?php
+/* *************************************************************************************************
+Карачинская Елизавета Анатольевна <elizavetakarachinskayaa@gmail.com>
+24/05/2016 02:40:00
+kategorii_gorodov - второстепенная страница, приложение к  index.php
+расположен в каталоге 315 
+****************************************************************************************************/
+
+?>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -12,9 +22,9 @@
 </head>
 <body>
 <?php 
-require_once 'func1.php';
+require_once 'core/func/func.php';
 ?>
- 	<img src="image/1.png" align="left" />
+ 	<img src="static/image/1.png" align="left" />
 	<h4 align="right"> Горячая линия (495)926-80-82 </h4>
  	<h1><a href="index.php" style="color:Crimson">Магазин &laquo;Женские штучки&raquo;</a></h1>
  	<h2> <a href="kategorii_tovarov.php" style="color:IndianRed" > Категории товаров </a></h2>
@@ -25,7 +35,7 @@ require_once 'func1.php';
 	<p class="name_catalog">
  		Наши адреса
  	</p>
- 	<?php echo view_link_category(); ?>
+ 	<?php echo view_link_category1(); ?>
  	
  	
 
@@ -36,6 +46,8 @@ require_once 'func1.php';
 
 echo get_id_category();
 echo view_product();
+echo get_id_category1();
+echo view_product1();
 ?>
 <p> <a href="index.php"> На главную </a></p>
 </body>
