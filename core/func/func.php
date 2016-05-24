@@ -12,7 +12,7 @@ require_once 'core/config/db.php';  // Работает
 // Функция выбора данных
 function result(){
 	// Выполняем SQL-запрос
-	$query = 'SELECT ID FROM kategorii_tovarov';
+	$query = 'SELECT ID FROM сategory_products';
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
 	// Выводим результаты в html
@@ -32,7 +32,7 @@ function result(){
 }
 function result1(){
 	// Выполняем SQL-запрос
-	$query = 'SELECT ID FROM kategorii_gorodov';
+	$query = 'SELECT ID FROM category_citys';
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
 	// Выводим результаты в html
@@ -57,7 +57,7 @@ function get_request(){
 function get_id_category(){
 	$category_url = $_GET["category"];
 	// Выполняем SQL-запрос
-	$query = "SELECT ID, name FROM kategorii_tovarov WHERE  url = '$category_url'";
+	$query = "SELECT ID, name FROM сategory_products WHERE  url = '$category_url'";
 	//$query->execute(array('url' => $category_url));
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -77,7 +77,7 @@ function get_id_category(){
 function get_id_category1(){
 	$category_url = $_GET["category"];
 	// Выполняем SQL-запрос
-	$query = "SELECT ID, gorod FROM kategorii_gorodov WHERE  url = '$category_url'";
+	$query = "SELECT ID, name FROM category_citys WHERE  url = '$category_url'";
 	//$query->execute(array('url' => $category_url));
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -85,7 +85,7 @@ function get_id_category1(){
 		echo "<table>\n";
 		echo "\t<tr>\n";
 	while ($rows = mysql_fetch_array($result, MYSQL_ASSOC)) {
-	    echo "\t\t<td>".$rows["ID"]." ".$rows['gorod']."</td>\n";
+	    echo "\t\t<td>".$rows["ID"]." ".$rows['name']."</td>\n";
 	    
 	}
 	echo "\t</tr>\n";
@@ -102,7 +102,7 @@ function view_link_category(){
 	* 1. Написать запрос на выборку name, url
 	* 2. Вывести значения в шаблон на главную index.php
 	*/
-	$query = "SELECT name, url FROM kategorii_tovarov;";
+	$query = "SELECT name, url FROM сategory_products;";
 	//$query->execute(array('url' => $category_url));
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -127,7 +127,7 @@ function view_link_category1(){
 	* 1. Написать запрос на выборку name, url
 	* 2. Вывести значения в шаблон на главную index.php
 	*/
-	$query = "SELECT gorod, url FROM kategorii_gorodov;";
+	$query = "SELECT name, url FROM category_citys;";
 	//$query->execute(array('url' => $category_url));
 	$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
@@ -135,7 +135,7 @@ function view_link_category1(){
 		echo "<table class=\"link\">\n";
 		echo "\t<tr>\n";
 	while ($rows = mysql_fetch_array($result, MYSQL_ASSOC)) {
-	    echo "\t\t<td><a href=?category=".$rows["url"].">".$rows['gorod']."</a></td>\n";
+	    echo "\t\t<td><a href=?category=".$rows["url"].">".$rows['name']."</a></td>\n";
 	    
 	}
 	echo "\t</tr>\n";
@@ -150,10 +150,10 @@ function view_product(){
 	* $category_url = $_GET["category"];
 	*/
 	$category_url = $_GET["category"];
-	$query = "SELECT  `kategorii_tovarov`.`name` ,  `tovar`.`name` , `price` , `kolichestvo` , `opisanie` FROM  `kategorii_tovarov` 
-		 LEFT JOIN  `tovar` ON  `kategorii_tovarov`.`ID` =  `tovar`.`ID kategorii` 
-		WHERE  `kategorii_tovarov`.`url` =  '$category_url'
-		ORDER BY  `kategorii_tovarov`.`name`; ";
+	$query = "SELECT  `сategory_products`.`name` ,  `products`.`ID_category` , `price` , `count` , `characteristic` FROM  `сategory_products` 
+		 LEFT JOIN  `products` ON  `сategory_products`.`ID` =  `products`.`ID_category` 
+		WHERE  `сategory_products`.`url` =  '$category_url'
+		ORDER BY  `сategory_products`.`name`; ";
 		$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
 	// Выводим результаты в html
@@ -175,10 +175,10 @@ function view_product1(){
 	* $category_url = $_GET["category"];
 	*/
 	$category_url = $_GET["category"];
-	$query = "SELECT  `kategorii_gorodov`.`gorod` ,  `gorod`.`adres` , `telefon` , `proezd` , `opisanie`  FROM  `kategorii_gorodov` 
-		 LEFT JOIN  `gorod` ON  `kategorii_gorodov`.`ID` =  `gorod`.`ID goroda` 
-		WHERE  `kategorii_gorodov`.`url` =  '$category_url'
-		ORDER BY  `kategorii_gorodov`.`gorod`; ";
+	$query = "SELECT  `category_citys`.`name` ,  `city`.`address` , `telefon` , `driveway` , `characteristic`  FROM  `category_citys` 
+		 LEFT JOIN  `city` ON  `category_citys`.`ID` =  `city`.`ID_city` 
+		WHERE  `category_citys`.`url` =  '$category_url'
+		ORDER BY  `category_citys`.`name`; ";
 		$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
 	// Выводим результаты в html

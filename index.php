@@ -23,8 +23,8 @@ index.php - точка входа, распределяет все запрос�
 <img src="static/image/1.png" align="left" />
 <h4 align="right"> Горячая линия (495)926-80-82 </h4>
  	<h1>Магазин &laquo;Женские штучки&raquo;</h1>
- 	<h2> <a href="kategorii_tovarov.php" style="color:IndianRed" > Категории товаров </a></h2>
-	<h3> <a href="kategorii_gorodov.php">Информация о компании </a></h3> 
+ 	<h2> <a href="product.php" style="color:IndianRed" > Категории товаров </a></h2>
+	<h3> <a href="information.php">Информация о компании </a></h3> 
 	
  	
  	<p class="about">
